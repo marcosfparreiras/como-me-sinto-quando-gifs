@@ -2,7 +2,8 @@ require 'nokogiri'
 require 'open-uri'
 require 'restclient'
 
-page = Nokogiri::HTML(RestClient.get("http://comoeumesintoquando.tumblr.com/"))
+last_page = 1450
+page = Nokogiri::HTML(RestClient.get("http://comoeumesintoquando.tumblr.com"))
 
 posts = page.css('div.post.post-type-text')
 posts.each do |post|
