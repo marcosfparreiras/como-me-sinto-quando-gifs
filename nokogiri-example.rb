@@ -26,7 +26,7 @@ class ComoMeSintoQuando
   def get_gif(post)
     {
       :text => get_gif_title(post),
-      :img =>get_gif_url(post)
+      :img  => get_gif_url(post)
     }
   end
 
@@ -45,15 +45,18 @@ class ComoMeSintoQuando
     img_tag[0]['src']
   end
 
-  def run
-    page = get_dom_elements
+  def get_gifs(page)
     gifs = []
-
     posts = page.css('div.post.post-type-text')
     posts.each do |post|
       gifs << get_gif(post)
     end
     gifs
+  end
+
+  def run
+    page = get_dom_elements
+    get_gifs(page)
   end
 
 end
